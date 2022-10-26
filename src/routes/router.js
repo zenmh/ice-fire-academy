@@ -7,6 +7,7 @@ import Blog from "../Pages/Blog/Blog";
 import CheckoutPage from "../Pages/CheckoutPage/CheckoutPage";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home";
 
@@ -57,5 +58,9 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);

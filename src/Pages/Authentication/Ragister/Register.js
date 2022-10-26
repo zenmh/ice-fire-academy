@@ -1,7 +1,7 @@
 import React from "react";
 import "./Register.css";
 import Image from "../../../assets/login.webp";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 import { useContext } from "react";
@@ -11,6 +11,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const Register = () => {
   const { createUser, updateUserInfo, continueWithProvider } =
     useContext(AuthContext);
+  const navigate = useNavigate();
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
@@ -22,7 +23,6 @@ const Register = () => {
     const photo_url = form.photo_url.value;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(name, photo_url, email, password);
 
     createUser(email, password)
       .then((userCredentials) => {
@@ -45,6 +45,7 @@ const Register = () => {
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log(user);
+        navigate("/");
       })
       .catch((err) => console.error("Error", err));
   };
@@ -54,6 +55,7 @@ const Register = () => {
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log(user);
+        navigate("/");
       })
       .catch((err) => console.error("Error", err));
   };
@@ -78,6 +80,7 @@ const Register = () => {
                   className="border-2 px-2 border-red-700"
                   type="text"
                   name="name"
+                  required
                 />
               </div>
               <div className="flex justify-between mb-4">
@@ -96,6 +99,7 @@ const Register = () => {
                   className="border-2 px-2 border-red-700"
                   type="email"
                   name="email"
+                  required
                 />
               </div>
               <div className="flex justify-between mb-4">
@@ -105,6 +109,7 @@ const Register = () => {
                   className="border-2 px-2 border-red-700"
                   type="password"
                   name="password"
+                  required
                 />
               </div>
 

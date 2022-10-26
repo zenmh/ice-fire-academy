@@ -4,6 +4,7 @@ import "./Navber.css";
 import { FaSun, FaUser } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import Image from "../../assets/ice-fire.png";
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -16,8 +17,8 @@ const Navber = () => {
   };
   return (
     <div className="flex items-center justify-between mx-6">
-      <div>
-        <img src="" alt="" />
+      <div className="flex items-center">
+        <img className="w-16 h-16" src={Image} alt="" />
         <h3 className="text-3xl font-bold">Ice Fire Academy</h3>
       </div>
       <div className=" font-semibold flex">

@@ -6,9 +6,12 @@ import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, setLoading, continueWithProvider } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -27,6 +30,27 @@ const Login = () => {
         navigate(from, { replace: true });
         console.log(user);
         form.reset();
+      })
+      .catch((err) => console.error("Error", err))
+      .finally(() => setLoading(false));
+  };
+
+  const continueGoogleSignIn = () => {
+    continueWithProvider(googleProvider)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => console.error("Error", err));
+  };
+
+  const continueGithubSignIn = () => {
+    continueWithProvider(githubProvider)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((err) => console.error("Error", err));
   };
@@ -54,6 +78,7 @@ const Login = () => {
                   className="border-2 px-2 border-red-700"
                   type="email"
                   name="email"
+                  required
                 />
               </div>
               <div className="flex justify-between mb-4">
@@ -63,6 +88,7 @@ const Login = () => {
                   className="border-2 px-2 border-red-700"
                   type="password"
                   name="password"
+                  required
                 />
               </div>
               <p className="flex justify-end">Forgot password?</p>
@@ -85,13 +111,13 @@ const Login = () => {
 
             <p className="text-center font-serif my-4">or</p>
 
-            <div className="flex justify-center">
+            <div onClick={continueGoogleSignIn} className="flex justify-center">
               <button className="flex justify-center items-center border-2 border-sky-200 my-2 rounded-2xl pl-2">
                 <FcGoogle />
                 <span className="mx-2 font-semibold">Continue with Google</span>
               </button>
             </div>
-            <div className="flex justify-center">
+            <div onClick={continueGithubSignIn} className="flex justify-center">
               <button className="flex justify-center items-center border-2 border-sky-200 my-2 rounded-2xl pl-2">
                 <SiGithub />
                 <span className="mx-2 font-semibold">Continue with Github</span>
