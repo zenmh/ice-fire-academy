@@ -1,16 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navber.css";
-import { FaSun } from "react-icons/fa";
+import { FaSun, FaUser } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Navber = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch(() => {});
+  };
   return (
     <div className="flex items-center justify-between mx-6">
       <div>
         <img src="" alt="" />
         <h3 className="text-3xl font-bold">Ice Fire Academy</h3>
       </div>
-      <div className=" font-semibold">
+      <div className=" font-semibold flex">
         <Link className="mx-2" to="/">
           Home
         </Link>
@@ -26,7 +36,28 @@ const Navber = () => {
         <button className="mx-2">
           <FaSun />
         </button>
-        <Link to="login">Login</Link>
+
+        {user?.uid ? (
+          <>
+            <Link className="mx-2" onClick={handleLogOut}>
+              Logout
+            </Link>
+            {user?.photoURL ? (
+              <img
+                title={user.displayName}
+                className="w-8 h-8 rounded-full tooltip"
+                src={user.photoURL}
+                alt=""
+              />
+            ) : (
+              <FaUser />
+            )}
+          </>
+        ) : (
+          <Link className="mx-2" to="login">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
