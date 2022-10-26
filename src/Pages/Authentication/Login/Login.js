@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
 import Image from "../../../assets/login.webp";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 import { useContext } from "react";
@@ -9,6 +9,9 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +24,9 @@ const Login = () => {
     logIn(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
+        navigate(from, { replace: true });
         console.log(user);
+        form.reset();
       })
       .catch((err) => console.error("Error", err));
   };

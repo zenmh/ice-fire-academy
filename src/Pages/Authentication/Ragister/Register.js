@@ -29,13 +29,13 @@ const Register = () => {
         const user = userCredentials.user;
         console.log(user);
         updateUserProfile(name, photo_url);
+        form.reset();
       })
       .catch((err) => console.error("Error", err));
   };
 
   const updateUserProfile = (name, photoURL) => {
-    const profile = { displayName: name, photoURL: photoURL };
-    updateUserInfo(profile)
+    updateUserInfo({ displayName: name, photoURL: photoURL })
       .then(() => {})
       .catch((err) => console.error("Error", err));
   };

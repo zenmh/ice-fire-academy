@@ -10,11 +10,13 @@ const Courses = () => {
       <div className="col-start-1 col-end-2 pl-8">
         <h3>Courses</h3>
         {courses.map((course) => (
-          <li className="list-none" key={course._id}>
-            <Link to={`/course_details/${course._id}`}>
-              {course.course_name}
-            </Link>
-          </li>
+          <Link
+            className="list-none block"
+            key={course._id}
+            to={`/course_details/${course._id}`}
+          >
+            {course.course_name}
+          </Link>
         ))}
       </div>
       <div className="col-start-2 col-end-6">

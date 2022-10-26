@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import ProtectedRoute from "../components/ProtectedRoute";
 import Main from "../layouts/Main";
 import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Ragister/Register";
 import Blog from "../Pages/Blog/Blog";
+import CheckoutPage from "../Pages/CheckoutPage/CheckoutPage";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import FAQ from "../Pages/FAQ/FAQ";
@@ -43,6 +45,16 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/premium/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/course/${params.id}`),
+        element: (
+          <ProtectedRoute>
+            <CheckoutPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
