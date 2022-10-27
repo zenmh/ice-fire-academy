@@ -7,10 +7,12 @@ import { SiGithub } from "react-icons/si";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { useState } from "react";
 
 const Register = () => {
   const { createUser, updateUserInfo, continueWithProvider } =
     useContext(AuthContext);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -30,8 +32,12 @@ const Register = () => {
         console.log(user);
         updateUserProfile(name, photo_url);
         form.reset();
+        navigate("/");
       })
-      .catch((err) => console.error("Error", err));
+      .catch((err) => {
+        console.error("Error", err);
+        setError(err.message);
+      });
   };
 
   const updateUserProfile = (name, photoURL) => {
@@ -47,7 +53,9 @@ const Register = () => {
         console.log(user);
         navigate("/");
       })
-      .catch((err) => console.error("Error", err));
+      .catch((err) => {
+        console.error("Error", err);
+      });
   };
 
   const handleGithubSingIn = () => {
@@ -112,7 +120,9 @@ const Register = () => {
                   required
                 />
               </div>
-
+              <div className="text-end text-red-500">
+                <p>{error}</p>
+              </div>
               <hr className="my-4" />
               <div className="flex justify-between">
                 <p>

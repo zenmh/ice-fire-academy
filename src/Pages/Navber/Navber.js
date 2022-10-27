@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navber.css";
 import { FaSun, FaUser } from "react-icons/fa";
 import { useContext } from "react";
@@ -22,27 +22,34 @@ const Navber = () => {
         <h3 className="text-3xl font-bold">Ice Fire Academy</h3>
       </div>
       <div className=" font-semibold flex">
-        <Link className="mx-2" to="/">
+        <NavLink
+          className={`mx-2 hover:text-slate-500 ${({ isActive }) =>
+            isActive ? "active" : undefined}`}
+          to="/home"
+        >
           Home
-        </Link>
-        <Link className="mx-2" to="/courses">
+        </NavLink>
+        <NavLink className="mx-2 hover:text-slate-500" to="/courses">
           Courses
-        </Link>
-        <Link className="mx-2" to="/faq">
+        </NavLink>
+        <NavLink className="mx-2 hover:text-slate-500" to="/faq">
           FAQ
-        </Link>
-        <Link className="mx-2" to="blog">
+        </NavLink>
+        <NavLink className="mx-2 hover:text-slate-500" to="blog">
           Blog
-        </Link>
-        <button className="mx-2">
+        </NavLink>
+        <button className="mx-2 hover:text-slate-500">
           <FaSun />
         </button>
 
         {user?.uid ? (
           <>
-            <Link className="mx-2" onClick={handleLogOut}>
+            <button
+              className="mx-2 hover:text-slate-500"
+              onClick={handleLogOut}
+            >
               Logout
-            </Link>
+            </button>
             {user?.photoURL ? (
               <img
                 title={user.displayName}
@@ -55,9 +62,9 @@ const Navber = () => {
             )}
           </>
         ) : (
-          <Link className="mx-2" to="login">
+          <NavLink className="mx-2 hover:text-slate-500" to="login">
             Login
-          </Link>
+          </NavLink>
         )}
       </div>
     </div>

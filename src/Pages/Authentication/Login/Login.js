@@ -7,9 +7,11 @@ import { SiGithub } from "react-icons/si";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { useState } from "react";
 
 const Login = () => {
   const { logIn, setLoading, continueWithProvider } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const location = useLocation();
@@ -31,7 +33,10 @@ const Login = () => {
         console.log(user);
         form.reset();
       })
-      .catch((err) => console.error("Error", err))
+      .catch((err) => {
+        console.error("Error", err);
+        setError(err.message);
+      })
       .finally(() => setLoading(false));
   };
 
@@ -91,8 +96,11 @@ const Login = () => {
                   required
                 />
               </div>
-              <p className="flex justify-end">Forgot password?</p>
-              <hr className="my-4" />
+              <div className="flex items-center justify-between">
+                <p className="text-red-600">{error}</p>
+                <p className="font-semibold">Forgot password?</p>
+              </div>
+              <hr className="mb-4 m-1" />
               <div className="flex justify-between">
                 <p>
                   Don't have an account ?{" "}
