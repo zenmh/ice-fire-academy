@@ -1,5 +1,5 @@
 import React from "react";
-import "./Register.css";
+
 import Image from "../../../assets/sign-up.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Login.css";
+
 import Image from "../../../assets/login.webp";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
