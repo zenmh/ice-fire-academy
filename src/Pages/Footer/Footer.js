@@ -11,7 +11,7 @@ import { RiCopyrightFill } from "react-icons/ri";
 const Footer = () => {
   const [teachers, setTeachers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/teachers")
+    fetch(" https://ice-fire-academy-server.vercel.app/teachers")
       .then((res) => res.json())
       .then((data) => setTeachers(data));
   }, []);
@@ -26,22 +26,40 @@ const Footer = () => {
             itaque quae vero aspernatur, esse atium voluptatum animi c
           </p>
           <div className="flex items-center mt-4">
-            <a className="mr-3 text-3xl" href="https://www.facebook.com/">
+            <a
+              className="mr-3 text-2xl hover:text-purple-600"
+              href="https://www.facebook.com/"
+            >
               <GrFacebook />
             </a>
-            <a className="mx-3 text-3xl" href="https://www.instagram.com/">
+            <a
+              className="mx-3 text-2xl hover:text-purple-600"
+              href="https://www.instagram.com/"
+            >
               <AiFillInstagram />
             </a>
-            <a className="mx-3 text-3xl" href="https://twitter.com/">
+            <a
+              className="mx-3 text-2xl hover:text-purple-600"
+              href="https://twitter.com/"
+            >
               <AiOutlineTwitter />
             </a>
-            <a className="mx-3 text-3xl" href="https://www.youtube.com/">
+            <a
+              className="mx-3 text-2xl hover:text-purple-600"
+              href="https://www.youtube.com/"
+            >
               <BsYoutube />
             </a>
-            <a className="mx-3 text-3xl" href="https://www.whatsapp.com/">
+            <a
+              className="mx-3 text-2xl hover:text-purple-600"
+              href="https://www.whatsapp.com/"
+            >
               <IoLogoWhatsapp />
             </a>
-            <a className="ml-3 text-3xl" href="https://bd.linkedin.com/">
+            <a
+              className="ml-3 text-2xl hover:text-purple-600"
+              href="https://bd.linkedin.com/"
+            >
               <BsLinkedin />
             </a>
           </div>
@@ -59,7 +77,12 @@ const Footer = () => {
         </div>
         <div>
           <h3 className="text-xl font-bold mb-4">Stay On Tuch</h3>
-          <input className="border-2 w-full mb-4" type="email" name="email" />
+          <input
+            className="border-2 w-full mb-4 border-none px-2 py-1"
+            type="email"
+            name="email"
+            placeholder="Enter email "
+          />
           <div className="flex justify-end">
             <button className="font-bold px-2 py-1 bg-white hover:bg-slate-200 text-black">
               Subscribe

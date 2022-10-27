@@ -40,9 +40,9 @@ const Navber = () => {
         </NavLink>
         <span className="mx-2">
           {theme ? (
-            <MdModeNight onClick={() => changeTheme(!theme)} />
-          ) : (
             <FaSun onClick={() => changeTheme(!theme)} />
+          ) : (
+            <MdModeNight onClick={() => changeTheme(!theme)} />
           )}
         </span>
         {user?.uid ? (

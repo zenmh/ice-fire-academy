@@ -80,7 +80,7 @@ const Login = () => {
                 <strong>E-mail</strong>
                 <input
                   placeholder="Enter email"
-                  className="border-2 px-2 border-red-700"
+                  className="border-2 lg:w-9/12 px-2 border-sky-200"
                   type="email"
                   name="email"
                   required
@@ -90,7 +90,7 @@ const Login = () => {
                 <strong>Password</strong>
                 <input
                   placeholder="Your password"
-                  className="border-2 px-2 border-red-700"
+                  className="border-2 lg:w-9/12 px-2 border-sky-200"
                   type="password"
                   name="password"
                   required
@@ -104,7 +104,10 @@ const Login = () => {
               <div className="flex justify-between">
                 <p>
                   Don't have an account ?{" "}
-                  <Link to="/register" className="font-semibold text-[#5e1660]">
+                  <Link
+                    to="/register"
+                    className="font-semibold  hover:text-sky-400"
+                  >
                     Register now
                   </Link>
                 </p>

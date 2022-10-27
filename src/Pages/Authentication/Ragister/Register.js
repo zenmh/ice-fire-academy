@@ -85,7 +85,7 @@ const Register = () => {
                 <strong>Full Name</strong>
                 <input
                   placeholder="Your name"
-                  className="border-2 px-2 border-red-700"
+                  className="border-2 lg:w-9/12 px-2 border-sky-200"
                   type="text"
                   name="name"
                   required
@@ -95,7 +95,7 @@ const Register = () => {
                 <strong>Image URL</strong>
                 <input
                   placeholder="Drop image url"
-                  className="border-2 px-2 border-red-700"
+                  className="border-2 lg:w-9/12 px-2 border-sky-200"
                   type="text"
                   name="photo_url"
                 />
@@ -104,7 +104,7 @@ const Register = () => {
                 <strong>E-mail</strong>
                 <input
                   placeholder="Enter email"
-                  className="border-2 px-2 border-red-700"
+                  className="border-2 lg:w-9/12 px-2 border-sky-200"
                   type="email"
                   name="email"
                   required
@@ -114,7 +114,7 @@ const Register = () => {
                 <strong>Password</strong>
                 <input
                   placeholder="Your password"
-                  className="border-2 px-2 border-red-700"
+                  className="border-2 lg:w-9/12 px-2 border-sky-200"
                   type="password"
                   name="password"
                   required
@@ -127,7 +127,10 @@ const Register = () => {
               <div className="flex justify-between">
                 <p>
                   Already have an account ?{" "}
-                  <Link to="/login" className="font-semibold text-[#5e1660]">
+                  <Link
+                    to="/login"
+                    className="font-semibold hover:text-sky-400"
+                  >
                     Login
                   </Link>
                 </p>

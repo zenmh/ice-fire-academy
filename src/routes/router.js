@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import CoursePDF from "../components/CoursePDF";
+import Help from "../components/Help";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Main from "../layouts/Main";
 import Login from "../Pages/Authentication/Login/Login";
@@ -56,6 +57,7 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      { path: "/help", element: <Help /> },
       {
         path: "/pdf/:id",
         loader: ({ params }) =>
