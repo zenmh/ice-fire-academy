@@ -11,10 +11,14 @@ const CourseDetails = () => {
     <div className="mx-80 border-dashed border-4 mt-8 p-3">
       <div className="flex justify-between items-center">
         <h3 className="text-2xl font-bold">{course_name}</h3>
-        <button className="border-2 flex items-center px-2 py-1">
+        <Link
+          title="Download Free Blueprint"
+          to={`/pdf/${_id}`}
+          className="border-2 flex items-center px-2 py-1"
+        >
           <p className="mr-2">Download</p>
           <GrDocumentPdf />
-        </button>
+        </Link>
       </div>
       <hr className="my-3" />
       <div>

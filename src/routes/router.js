@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CoursePDF from "../components/CoursePDF";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Main from "../layouts/Main";
 import Login from "../Pages/Authentication/Login/Login";
@@ -10,6 +11,7 @@ import Courses from "../Pages/Courses/Courses";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home";
+import Profile from "../Pages/Profille/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -52,12 +54,26 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: "/pdf/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/course/${params.id}`),
+        element: <CoursePDF />,
+      },
+      {
         path: "/premium/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/course/${params.id}`),
         element: (
           <ProtectedRoute>
             <CheckoutPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
         ),
       },

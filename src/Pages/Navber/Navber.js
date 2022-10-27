@@ -1,13 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navber.css";
 import { FaSun, FaUser } from "react-icons/fa";
+import { MdModeNight } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Image from "../../assets/ice-fire.png";
+import { useState } from "react";
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [theme, changeTheme] = useState(false);
   console.log(user);
 
   const handleLogOut = () => {
@@ -21,7 +24,7 @@ const Navber = () => {
         <img className="w-16 h-16" src={Image} alt="" />
         <h3 className="text-3xl font-bold">Ice Fire Academy</h3>
       </div>
-      <div className=" font-semibold flex">
+      <div className=" font-semibold flex items-center">
         <NavLink
           className={`mx-2 hover:text-slate-500 ${({ isActive }) =>
             isActive ? "active" : undefined}`}
@@ -38,10 +41,13 @@ const Navber = () => {
         <NavLink className="mx-2 hover:text-slate-500" to="blog">
           Blog
         </NavLink>
-        <button className="mx-2 hover:text-slate-500">
-          <FaSun />
-        </button>
-
+        <span className="mx-2">
+          {theme ? (
+            <MdModeNight onClick={() => changeTheme(!theme)} />
+          ) : (
+            <FaSun onClick={() => changeTheme(!theme)} />
+          )}
+        </span>
         {user?.uid ? (
           <>
             <button
@@ -51,12 +57,14 @@ const Navber = () => {
               Logout
             </button>
             {user?.photoURL ? (
-              <img
-                title={user.displayName}
-                className="w-8 h-8 rounded-full tooltip"
-                src={user.photoURL}
-                alt=""
-              />
+              <Link to="/profile">
+                <img
+                  className="w-8 h-8 rounded-full tooltip"
+                  title={user.displayName}
+                  src={user.photoURL}
+                  alt=""
+                />
+              </Link>
             ) : (
               <FaUser />
             )}
