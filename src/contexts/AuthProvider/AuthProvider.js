@@ -19,6 +19,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [theme, changeTheme] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const continueWithProvider = (provider) => {
@@ -60,6 +61,8 @@ const AuthProvider = ({ children }) => {
       value={{
         user,
         loading,
+        theme,
+        changeTheme,
         continueWithProvider,
         createUser,
         updateUserInfo,

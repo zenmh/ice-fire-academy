@@ -20,7 +20,7 @@ const Courses = () => {
           ))}
         </div>
         <div className="col-start-2 col-end-6">
-          <h2 className="font-bold md:text-2xl">Explore Our Courses</h2>
+          <h2 className="font-bold md:text-2xl mb-4">Explore Our Courses</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {courses.map((course) => (
               <CourseCard key={course._id} course={course} />

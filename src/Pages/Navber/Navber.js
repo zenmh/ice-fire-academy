@@ -6,12 +6,9 @@ import { MdModeNight } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Image from "../../assets/ice-fire.png";
-import { useState } from "react";
 
 const Navber = () => {
-  const { user, logOut } = useContext(AuthContext);
-  const [theme, changeTheme] = useState(false);
-  console.log(user);
+  const { user, logOut, theme, changeTheme } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -22,7 +19,7 @@ const Navber = () => {
     <div className="md:flex items-center justify-between md:mx-6">
       <div className="flex items-center">
         <img className="w-16 h-16" src={Image} alt="" />
-        <h3 className="text-3xl font-bold">Ice Fire Academy</h3>
+        <h3 className="text-3xl font-bold pl-2">Ice Fire Academy</h3>
       </div>
       <div className=" font-semibold flex items-center">
         <NavLink
