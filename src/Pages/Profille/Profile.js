@@ -7,7 +7,7 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="border-2 mx-96 p-3">
+    <div className="border-2 lg:mx-96 mx-1 mt-8 p-3">
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold">My Profile</h3>
         <button className="flex items-center border-2 px-2 py-1 rounded-sm">

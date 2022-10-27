@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <div className="border-2 p-6 bg-black text-white mt-16">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4">
         <div>
           <h3 className="text-xl font-bold mb-3">Describe In Two Line</h3>
           <p>
@@ -46,7 +46,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="flex justify-around">
+        <div className="md:flex justify-around">
           <div>
             <h3 className="text-xl font-bold">Our Heros</h3>
             {teachers.map((teacher) => (

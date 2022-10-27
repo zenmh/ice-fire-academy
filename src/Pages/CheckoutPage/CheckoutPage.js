@@ -14,8 +14,8 @@ const CheckoutPage = () => {
         <span className="font-bold"> Mr. {user.displayName}</span> welcome to
         premium zone.
       </h3>
-      <div className="mx-32 ">
-        <div className="grid grid-cols-2">
+      <div className="lg:mx-32 mx-2">
+        <div className="grid md:grid-cols-2">
           <img src={thumb_url} alt="" />
           <div className="font-semibold ml-4">
             <p>

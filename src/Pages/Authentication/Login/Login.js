@@ -61,11 +61,11 @@ const Login = () => {
   };
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="md:grid grid-cols-2">
       <div>
         <img src={Image} alt="" />
       </div>
-      <div className="flex justify-center w-8/12">
+      <div className="flex justify-center mx-2 lg:w-8/12">
         <div>
           <div className="mb-20">
             <h3 className="text-2xl font-bold">Log In</h3>

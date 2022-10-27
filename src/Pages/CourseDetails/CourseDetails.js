@@ -8,7 +8,7 @@ const CourseDetails = () => {
   const { _id, thumb_url, course_name, technology, about, duration } = course;
   console.log(course);
   return (
-    <div className="mx-80 border-dashed border-4 mt-8 p-3">
+    <div className="lg:mx-80 border-dashed border-4 mt-8 p-3">
       <div className="flex justify-between items-center">
         <h3 className="text-2xl font-bold">{course_name}</h3>
         <Link

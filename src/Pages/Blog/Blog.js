@@ -2,8 +2,8 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="mx-12">
-      <h2 className="text-3xl font-bold text-center my-8">
+    <div className="lg:mx-12 mx-2">
+      <h2 className="md:text-3xl text-lg font-bold text-center my-8">
         There have some Questions - ans that should you know as Developer.
       </h2>
       <div className="border-2 border-slate-500 rounded-sm p-4 my-4">

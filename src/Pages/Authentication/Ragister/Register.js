@@ -1,6 +1,6 @@
 import React from "react";
 import "./Register.css";
-import Image from "../../../assets/login.webp";
+import Image from "../../../assets/sign-up.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
@@ -69,7 +69,7 @@ const Register = () => {
   };
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="md:grid mx-2 grid-cols-2">
       <div>
         <img src={Image} alt="" />
       </div>
@@ -135,7 +135,7 @@ const Register = () => {
                   className="bg-[#5e1660] px-3 py-1 text-white rounded-sm"
                   type="submit"
                 >
-                  Enroll Now
+                  Sign Up
                 </button>
               </div>
             </form>

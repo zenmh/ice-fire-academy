@@ -19,7 +19,7 @@ const Navber = () => {
       .catch(() => {});
   };
   return (
-    <div className="flex items-center justify-between mx-6">
+    <div className="md:flex items-center justify-between md:mx-6">
       <div className="flex items-center">
         <img className="w-16 h-16" src={Image} alt="" />
         <h3 className="text-3xl font-bold">Ice Fire Academy</h3>
