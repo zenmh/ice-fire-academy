@@ -1,5 +1,4 @@
 import React from "react";
-import "./Footer.css";
 import { BsYoutube, BsLinkedin } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
